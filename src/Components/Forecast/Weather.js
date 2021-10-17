@@ -16,9 +16,9 @@ const Weather = (props) => {
     const { current, daily, hourly } = searchCtx.weather
     const location = searchCtx.selectedLocation;
 
-    const icon = `http://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`;
+    const weatherImg = `http://openweathermap.org/img/wn/${current.weather[0].icon}@2x.png`;
 
-    const iconClickHandler = () => {
+    const buttonClickHandler = () => {
         if (weatherFormat === 'Hourly') {
             setWeatherFormat('Daily');
         } else {
@@ -68,15 +68,15 @@ const Weather = (props) => {
                 <h2>{location}</h2>
             </div>
 
-            {<CurrentWeather temp={tempConverter(current.temp)} tempFeelsLike={tempConverter(current.feels_like)} windSpeed={current.wind_speed} windDirection={windDirection(current.wind_deg)} description={current.weather[0].description} icon={icon} />}
+            {<CurrentWeather temp={tempConverter(current.temp)} tempFeelsLike={tempConverter(current.feels_like)} windSpeed={current.wind_speed} windDirection={windDirection(current.wind_deg)} description={current.weather[0].description} img={weatherImg} />}
             <div className={classes['temp-buttons']}>
                 <Button className={activeF} onClick={(e) => update(e, 'F')}>℉</Button>
                 <Button className={activeC} onClick={(e) => update(e, 'C')}>°C</Button>
             </div>
 
             <div className={classes['section-header-container']}>
-                <Button className={activeHourly} onClick={iconClickHandler}>Hourly Forecast</Button>
-                <Button className={activeDaily} onClick={iconClickHandler}>Daily Forecast</Button>
+                <Button className={activeHourly} onClick={buttonClickHandler}>Hourly Forecast</Button>
+                <Button className={activeDaily} onClick={buttonClickHandler}>Daily Forecast</Button>
             </div>
             {weatherFormat === 'Hourly' && <Forecast format={'Hourly Forecast'} forecast={hourly} temp={tempConverter} wind={windDirection} percipitation={percipitation} />}
             {weatherFormat === 'Daily' && <Forecast format={'Daily Forecast'} forecast={daily} temp={tempConverter} wind={windDirection} percipitation={percipitation} />}

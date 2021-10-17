@@ -11,11 +11,7 @@ const Search = () => {
     const [searchText, setSearchText] = useState('');
     const [error, setError] = useState('');
     const [searching, setSearching] = useState(false);
-    const [icon, setIcon] = useState(true);
 
-    const iconClickHandler = () => {
-        setIcon(prevState => !prevState);
-    };
 
     const searchCtx = useContext(SearchContext);
 
@@ -24,8 +20,6 @@ const Search = () => {
         if (localStorage.getItem('location')) {
             const location = JSON.parse(localStorage.getItem('location'))
             searchCtx.setLocation(location)
-
-            setIcon(false);
         }
     }, []);
 
@@ -51,33 +45,22 @@ const Search = () => {
 
     const onModalCloseHandler = () => {
         setSearching(false);
-
-        if (searchCtx.selectedLocation) {
-            setIcon(false);
-        };
     };
-
-    const activeSearch = icon ? `${classes['button-active']}` : '';
-
-    const searchForm = icon || !searchCtx.selectedLocation ? <div className="search-container">
-        <div>
-            <form className={classes.form} onSubmit={onFormSubmitHandler}>
-                <label htmlFor="searchText">Search for your location.</label>
-                <input type='text' name='searchText' placeholder="Enter a location" value={searchText} onChange={onSearchTextChangeHandler}></input>
-                {error && <p className={classes['search-error']}>{error}</p>}
-                {!error && searchCtx.errorText && <p className={classes['search-error']}>No locations found. Please try searching again!</p>}
-                <Button>Search</Button>
-            </form>
-        </div>
-    </div> : '';
 
     return (
         <>
             <section className={classes.search}>
-                <div className={classes['search-header-container']}>
-                    <Button className={activeSearch} onClick={iconClickHandler} icon={icon}>Location Search</Button>
+                <div className="search-container">
+                    <div>
+                        <form className={classes.form} onSubmit={onFormSubmitHandler}>
+                            <label htmlFor="searchText">Search for your location.</label>
+                            <input type='text' name='searchText' placeholder="Enter a location" value={searchText} onChange={onSearchTextChangeHandler}></input>
+                            {error && <p className={classes['search-error']}>{error}</p>}
+                            {!error && searchCtx.errorText && <p className={classes['search-error']}>No locations found. Please try searching again!</p>}
+                            <Button>Search</Button>
+                        </form>
+                    </div>
                 </div>
-                {icon && searchForm}
             </section>
             {searching && searchCtx.locationOptions.length !== 0 && <LocationOptionsModal onClose={onModalCloseHandler} />}
         </>
