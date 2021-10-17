@@ -20,7 +20,7 @@ const searchReducer = (state, action) => {
             return { ...state, error: action.payload }
             break;
         case 'LOCATION_OPTIONS':
-            return { ...state, locationOptions: action.payload }
+            return { ...state, userSearchText: '', locationOptions: action.payload }
         case 'LOCATION_SELECTION':
             return { ...state, locationOptions: [], selectedLocation: action.payload }
             break;
@@ -50,6 +50,8 @@ const SearchProvider = (props) => {
         const locationOptions = async () => {
             const call = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${searchText}&key=${key1}`);
             if (call.status === 200) {
+
+                dispatchAction({ type: 'ERROR_TEXT', payload: '' });
 
                 const response = await call.json();
 

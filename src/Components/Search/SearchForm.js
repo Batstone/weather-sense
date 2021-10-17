@@ -35,13 +35,12 @@ const Search = () => {
 
     const onFormSubmitHandler = (e) => {
         e.preventDefault();
+        setError(false);
 
         if (searchText.trim().length <= 1) {
             setError('Please enter a location');
             return;
         };
-
-        setError(false);
 
         setSearching((true));
 
@@ -66,7 +65,7 @@ const Search = () => {
                 <label htmlFor="searchText">Search for your location.</label>
                 <input type='text' name='searchText' placeholder="Enter a location" value={searchText} onChange={onSearchTextChangeHandler}></input>
                 {error && <p className={classes['search-error']}>{error}</p>}
-                {searchCtx.errorText && <p className={classes['search-error']}>No locations found. Please try searching again!</p>}
+                {!error && searchCtx.errorText && <p className={classes['search-error']}>No locations found. Please try searching again!</p>}
                 <Button>Search</Button>
             </form>
         </div>
