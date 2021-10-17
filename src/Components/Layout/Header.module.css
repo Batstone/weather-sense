@@ -1,0 +1,23 @@
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  padding: 15px 0;
+  margin: 10px 0 45px 0;
+}
+
+.header-container span {
+  color: rgb(209, 80, 28);
+}
+
+@media (max-width: 900px) {
+  .header-container {
+    flex-direction: column;
+  }
+
+  .header-container h1 {
+    margin-bottom: 10px;
+  }
+}

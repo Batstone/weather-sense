@@ -1,0 +1,27 @@
+footer {
+  background-color: #353535;
+  color: white;
+  margin-top: 50px;
+}
+
+footer a {
+  color:rgb(209, 80, 28);
+  text-decoration: none;
+}
+
+footer a:hover,
+footer a:active {
+  color:white;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.footer-container span {
+  color: rgb(209, 80, 28);
+}

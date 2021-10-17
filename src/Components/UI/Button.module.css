@@ -1,0 +1,20 @@
+.button {
+    font: inherit;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    background: rgba(255, 255,255,0.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.219);
+    border-radius: 25px;
+    transition: .3s;
+    margin: 1.5rem;
+    padding: 0.9rem 2rem;
+}
+
+.button:hover,
+.button:active {
+    transform: scale(1.1);
+    background: rgb(156, 56, 16);
+    background: rgb(209, 80, 28);
+}
+  

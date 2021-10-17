@@ -1,0 +1,63 @@
+
+/*  WEATHER COMPONENT  */
+
+.current-weather {
+  display: flex;
+  justify-content: space-around; 
+  margin: 0 auto 20px auto;
+  color: white;
+  font-size: 2rem;
+}
+  
+.current-weather__container {
+  position: relative;
+  overflow: hidden;
+  width: 240px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  background: rgba(255, 255,255,0.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+}
+  
+.current-weather__container:before {
+  content: '';
+  position: absolute;
+  left: -60%;
+  height: 100%;
+  width: 300px;
+  background: linear-gradient(to left, rgba(255,255,255,0.05), transparent);
+  transform: skewx(30deg) translateX(0);
+  border-radius: 20px;
+  transition: .5s;
+}
+
+.current-weather__container:hover:before {
+  transform: skewx(30deg) translateX(100%);
+}
+
+.current-weather__container div {
+  margin-top: -45px;
+}
+  
+.current-weather__container li {
+  margin-bottom: 15px;
+}
+
+.current-weather__container-temp {
+  font-size: 3.2rem;
+}
+
+.current-weather__container-img {
+    width: 50%;
+}
+
+.current-weather__container img {
+  width: 100%;
+}
