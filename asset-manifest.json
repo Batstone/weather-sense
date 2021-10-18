@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/weather-sense/static/css/main.7d9b8c63.chunk.css",
+    "main.css": "/weather-sense/static/css/main.802937ff.chunk.css",
     "main.js": "/weather-sense/static/js/main.dcb03433.chunk.js",
     "main.js.map": "/weather-sense/static/js/main.dcb03433.chunk.js.map",
     "runtime-main.js": "/weather-sense/static/js/runtime-main.84951229.js",
@@ -10,14 +10,14 @@
     "static/js/3.704e3cd3.chunk.js": "/weather-sense/static/js/3.704e3cd3.chunk.js",
     "static/js/3.704e3cd3.chunk.js.map": "/weather-sense/static/js/3.704e3cd3.chunk.js.map",
     "index.html": "/weather-sense/index.html",
-    "static/css/main.7d9b8c63.chunk.css.map": "/weather-sense/static/css/main.7d9b8c63.chunk.css.map",
+    "static/css/main.802937ff.chunk.css.map": "/weather-sense/static/css/main.802937ff.chunk.css.map",
     "static/js/2.dc461280.chunk.js.LICENSE.txt": "/weather-sense/static/js/2.dc461280.chunk.js.LICENSE.txt",
     "static/media/index.css": "/weather-sense/static/media/background-effect.8ceddbc3.png"
   },
   "entrypoints": [
     "static/js/runtime-main.84951229.js",
     "static/js/2.dc461280.chunk.js",
-    "static/css/main.7d9b8c63.chunk.css",
+    "static/css/main.802937ff.chunk.css",
     "static/js/main.dcb03433.chunk.js"
   ]
 }
