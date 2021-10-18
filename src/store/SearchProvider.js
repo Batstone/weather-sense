@@ -30,8 +30,9 @@ const searchReducer = (state, action) => {
         case 'WEATHER_CONDITIONS':
             return { ...state, weather: action.payload }
             break;
+        default:
+            return state;
     }
-    return state;
 };
 
 const key1 = '04d384a1bafb46ecaeb07b4ab49c647c';
@@ -46,11 +47,11 @@ const SearchProvider = (props) => {
         if (searchText.trim() === '') {
             return;
         }
-        // API for getting users coordinates
+        // API call for getting locations based on the users search
         const locationOptions = async () => {
             const call = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${searchText}&key=${key1}`);
             if (call.status === 200) {
-
+                // Clear the error text before search
                 dispatchAction({ type: 'ERROR_TEXT', payload: '' });
 
                 const response = await call.json();
@@ -59,7 +60,7 @@ const SearchProvider = (props) => {
                     dispatchAction({ type: 'ERROR_TEXT', payload: 'No Locations found! Please search for another location.' });
                     return;
                 }
-
+                // Set the search results
                 dispatchAction({ type: 'LOCATION_OPTIONS', payload: response.results });
 
             } else {
@@ -70,6 +71,7 @@ const SearchProvider = (props) => {
             console.log('error!', error);
         });
     }, [searchState.userSearchText]);
+
 
     useEffect(() => {
         const coordinates = searchState.selectedLocationCoordinates;
@@ -91,14 +93,16 @@ const SearchProvider = (props) => {
         getLocationData().catch(error => {
             console.log('error!', error)
         })
-    }, [searchState.selectedLocation, searchState.locationCoordinates]);
+    }, [searchState.selectedLocation, searchState.selectedLocationCoordinates]);
 
     const setSearchTextHandler = (text) => {
         dispatchAction({ type: 'USER_SEARCH_TEXT', payload: text });
     };
 
     const setLocationSelectionHandler = (selection) => {
+        // The name of the location
         dispatchAction({ type: 'LOCATION_SELECTION', payload: selection.formatted })
+        // The location coordinates
         dispatchAction({ type: 'LOCATION_SELECTION_COORDINATES', payload: selection.geometry })
     };
 

@@ -12,7 +12,7 @@ const CurrentForecast = (props) => {
         <Card className={classes['current-weather']}>
             <ul className={classes['current-weather__container']}>
                 <li className={classes['current-weather__container-img']}>
-                    <img src={img}></img>
+                    <img src={img} alt="Image of the current weather conditions"></img>
                 </li>
                 <div>
                     <li className={classes['current-weather__container-temp']}>{temp}</li>

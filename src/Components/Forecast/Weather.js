@@ -7,7 +7,7 @@ import Button from '../UI/Button';
 
 import classes from './Weather.module.css';
 
-const Weather = (props) => {
+const Weather = () => {
 
     const [tempFormat, updateTempFormat] = useState('F');
     const [weatherFormat, setWeatherFormat] = useState('Hourly');
@@ -26,7 +26,7 @@ const Weather = (props) => {
         }
     };
 
-    // Function for converting themperature from F <-> C
+    // Function for converting temperature from F <-> C
     const tempConverter = (temp) => {
         if (tempFormat !== 'F') {
             const celciusConversion = (temp - 273.15).toFixed(0);
@@ -57,6 +57,7 @@ const Weather = (props) => {
         return arr[(val % 16)];
     }
 
+    // Setting active classes
     const activeF = tempFormat === 'F' ? `${classes['button-active']}` : '';
     const activeC = tempFormat === 'C' ? `${classes['button-active']}` : '';
     const activeHourly = weatherFormat === 'Hourly' ? `${classes['button']} ${classes['button-active']}` : `${classes['button']}`;

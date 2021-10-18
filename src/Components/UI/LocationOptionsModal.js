@@ -6,16 +6,18 @@ import Button from './Button';
 
 import classes from './LocationOptionsModal.module.css';
 
+// Saving the selected location to local storage
 const saveToLocalStorage = (location) => {
     localStorage.setItem('location', JSON.stringify(location));
 };
 
+// The backdrop for the modal
 const Backdrop = (props) => {
     return <div className={classes.backdrop} onClick={props.onClose} />;
 };
 
+// The modal overlay with location selection options
 const ModalOverlay = (props) => {
-
     const searchCtx = useContext(SearchContext);
 
     const locationChoiceHandler = (location) => {
@@ -40,6 +42,7 @@ const ModalOverlay = (props) => {
     );
 };
 
+// Component with both the backdrop and the overlay
 const LocationOptionsModal = (props) => {
     return (
         <>

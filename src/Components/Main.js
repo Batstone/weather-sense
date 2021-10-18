@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import SearchForm from './Search/SearchForm';
 import Weather from './Forecast/Weather';
 import SearchContext from '../store/search-context';
